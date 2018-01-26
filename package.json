@@ -1,0 +1,22 @@
+{
+  "name": "jtest",
+  "version": "1.0.0",
+  "description": "This is test plugin creation for Android and iOS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "JTest",
+    "Jayesh",
+    "ionic"
+  ],
+  "author": "Jayesh Lahare",
+  "license": "ISC",
+  "dependencies": {
+    "@ionic-native/core": "^4.5.2",
+    "gulp": "^3.9.1",
+    "ionic-native": "^2.9.0"
+  },
+  "devDependencies": {}
+}
