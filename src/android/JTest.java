@@ -40,7 +40,7 @@ public class JTest extends CordovaPlugin {
     }
 
     private void add(JSONArray args, CallbackContext callbackContext) {
-        if (message != null ) {
+        if (args != null ) {
             int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
             int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
             callbackContext.success(""+ (p1+p2));
@@ -50,7 +50,7 @@ public class JTest extends CordovaPlugin {
     }
 
     private void multiply(JSONArray args, CallbackContext callbackContext) {
-        if (message != null ) {
+        if (args != null ) {
             int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
             int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
             callbackContext.success(""+ (p1*p2));
