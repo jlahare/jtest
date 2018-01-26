@@ -1,9 +1,9 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function (arg0, success, error) {
+module.exports.coolMethod = function (arg0, success, error) {
     exec(success, error, 'JTest', 'coolMethod', [arg0]);
 };
 
-exports.add = function (arg0, success, error) {
+module.exports.add = function (arg0, success, error) {
     exec(success, error, 'JTest', 'add', [arg0]);
 };
