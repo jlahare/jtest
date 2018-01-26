@@ -23,8 +23,8 @@ public class JTest extends CordovaPlugin {
 
             String params = "";
             try{
-                String p1 = args.getJSONObject(0).getString(0);
-                String p2 = args.getJSONObject(0).getString(1);
+                String p1 = args.getJSONObject(0).getString("param1");
+                String p2 = args.getJSONObject(0).getString("param2");
                 params += p1 + " , " + p2;
             }catch(Exception ex){}
           
