@@ -20,9 +20,15 @@ public class JTest extends CordovaPlugin {
             return true;
         }
         if (action.equals("add")) {
-           // String p1 = args.getString(0);
-           // String p2 = args.getString(1);
-            this.add("Total : " , callbackContext);
+
+            String params = "";
+            try{
+                String p1 = args.getJSONObject(0).getString(0);
+                String p2 = args.getJSONObject(0).getString(1);
+                params += p1 + " , " + p2;
+            }catch(Exception ex){}
+          
+            this.add("Total : "+params , callbackContext);
             return true;
         }
         return false;
