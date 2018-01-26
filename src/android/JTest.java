@@ -22,7 +22,7 @@ public class JTest extends CordovaPlugin {
         if (action.equals("add")) {
            // String p1 = args.getString(0);
            // String p2 = args.getString(1);
-            callbackContext.success("Total : " + args.toString());
+            this.add("Total : " , callbackContext);
             return true;
         }
         return false;
@@ -31,6 +31,14 @@ public class JTest extends CordovaPlugin {
     private void coolMethod(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
             callbackContext.success("Hello From Plugin : " + message);
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
+
+    private void add(String message, CallbackContext callbackContext) {
+        if (message != null && message.length() > 0) {
+            callbackContext.success("Add Method : " + message);
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
