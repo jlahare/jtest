@@ -20,15 +20,12 @@ public class JTest extends CordovaPlugin {
             return true;
         }
         if (action.equals("add")) {
+            this.add(args , callbackContext);
+            return true;
+        }
 
-            String params = "";
-            try{
-                String p1 = args.getJSONObject(0).getString("param1");
-                String p2 = args.getJSONObject(0).getString("param2");
-                params += p1 + " , " + p2;
-            }catch(Exception ex){}
-          
-            this.add("Total : "+params , callbackContext);
+        if (action.equals("multiply")) {
+            this.multiply(args , callbackContext);
             return true;
         }
         return false;
@@ -42,9 +39,21 @@ public class JTest extends CordovaPlugin {
         }
     }
 
-    private void add(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success("Add Method : " + message);
+    private void add(JSONArray message, CallbackContext callbackContext) {
+        if (message != null ) {
+            int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
+            int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+            callbackContext.success(""+ (p1+p2));
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
+
+    private void multiply(JSONArray message, CallbackContext callbackContext) {
+        if (message != null ) {
+            int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
+            int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+            callbackContext.success(""+ (p1*p2));
         } else {
             callbackContext.error("Expected one non-empty string argument.");
         }
