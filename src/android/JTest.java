@@ -28,6 +28,16 @@ public class JTest extends CordovaPlugin {
             this.multiply(args , callbackContext);
             return true;
         }
+        if (action.equals("substract")) {
+            this.substract(args , callbackContext);
+            return true;
+        }
+        if (action.equals("divide")) {
+            this.divide(args , callbackContext);
+            return true;
+        }
+
+
         return false;
     }
 
@@ -68,4 +78,34 @@ public class JTest extends CordovaPlugin {
             callbackContext.error("Expected one non-empty string argument.");
         }
     }
+
+    private void substract(JSONArray args, CallbackContext callbackContext) {
+        if (args != null ) {
+            try {
+                int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
+                int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+                callbackContext.success(""+ (p1-p2));
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+            callbackContext.success("0");
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
+    private void divide(JSONArray args, CallbackContext callbackContext) {
+        if (args != null ) {
+            try {
+                int p1 =  Integer.parseInt(args.getJSONObject(0).getString("param1"));
+                int p2 = Integer.parseInt(args.getJSONObject(0).getString("param2"));
+                callbackContext.success(""+ (p1/p2));
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+            callbackContext.success("0");
+        } else {
+            callbackContext.error("Expected one non-empty string argument.");
+        }
+    }
+
 }
